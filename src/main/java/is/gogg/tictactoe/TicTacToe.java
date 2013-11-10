@@ -1,4 +1,4 @@
-package tictactoe;
+package is.gogg.tictactoe;
 
 public class TicTacToe
 {
