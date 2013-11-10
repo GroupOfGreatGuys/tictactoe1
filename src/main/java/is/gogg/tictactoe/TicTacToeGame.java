@@ -11,6 +11,11 @@ public class TicTacToeGame
 		squares = new char[9];
 	}
 	
+	public TicTacToeGame(char[] theSquares)
+	{
+		squares = theSquares;
+	}
+
 	public void makeTurn(char sign, int index)
 	{
 		// Makes a player turn, puts the player's sign in the correct index
