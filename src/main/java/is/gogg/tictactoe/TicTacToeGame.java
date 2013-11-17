@@ -14,6 +14,7 @@ public class TicTacToeGame
 	public TicTacToeGame(char[] theSquares)
 	{
 		squares = theSquares;
+		draw(theSquares);
 	}
 
 	public void makeTurn(char sign, int index)
@@ -76,9 +77,55 @@ public class TicTacToeGame
 		// Checks if the game is over
 	}
 
-	public void draw()
+
+	/**
+	* Boolean method which checks whos turn it is.
+	* If it´s player1´s turn, it returns true,
+	* false otherwise.
+	**/
+	public boolean playersTurn(char[] theSquares)
+	{
+		int counterx = 0;
+		int countero = 0;
+
+		for (char s : theSquares)
+		{
+			if (s == 'X')
+			{
+				counterx++;
+			}
+			else if (s == 'O')
+			{
+				countero++;
+			}
+		}
+		if (counterx == countero)
+		{
+			return true;
+		}
+		return false;
+		//TODO: MAKE SURE THIS FUNCTION IS NOT CALLED
+		//WHEN GAME IS OVER.
+	}
+
+	public void draw(char[] theSquares)
 	{
 		// This function draws up the board
+
+		for (int i = 0; i < 9; i++)
+		{
+
+			if (i == 1 || i == 4 || i == 7)
+			{
+				System.out.print("|" + theSquares[i] + "|");
+			}
+			else 
+				System.out.print(theSquares[i]);
+			if (i == 2 && i == 5)
+			{
+				System.out.println("\n" + "------------");
+			}
+		}
 	}
 	
 	public boolean isGameOver()

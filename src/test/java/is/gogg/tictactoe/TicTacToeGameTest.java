@@ -31,16 +31,26 @@ public class TicTacToeGameTest {
     public void checkForWinTest()
     {
 
-	// all possible winning combinationi
-	int[] number = new int[] {0,1,2,3,4,5,6,7,8,0,3,6,1,4,7,2,5,8,0,4,8,2,4,6};
-   	for(int i = 0; i < 24; i = i + 3)
-	{
-		TicTacToeGame game = new TicTacToeGame();
-   		game.makeTurn('x',number[i]);
-		game.makeTurn('x',number[i+1]);
-   		game.makeTurn('x',number[i+2]);
+	     // all possible winning combinationi
+	     int[] number = new int[] {0,1,2,3,4,5,6,7,8,0,3,6,1,4,7,2,5,8,0,4,8,2,4,6};
+   	    for(int i = 0; i < 24; i = i + 3)
+	     {
+		    TicTacToeGame game = new TicTacToeGame();
+   		   game.makeTurn('x',number[i]);
+		      game.makeTurn('x',number[i+1]);
+   		     game.makeTurn('x',number[i+2]);
 
-    		assertTrue(game.isGameOver());
-	}
+    	   	assertTrue(game.isGameOver());
+	     }
     }
+
+    //Tests if it is Player2's turn.
+    @Test
+    public void checkWhosTurnTest()
+    {
+      TicTacToeGame game = new TicTacToeGame();
+      game.makeTurn('X', number[0]);
+      assertTrue(!game.playersTurn(game.squares));
+    }
+
 }
