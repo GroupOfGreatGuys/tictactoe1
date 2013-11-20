@@ -1,6 +1,7 @@
 package is.gogg.tictactoe;
 
 import java.io.Console;
+import java.util.Random;
 
 public class Player
 {
@@ -44,15 +45,30 @@ public class Player
 	
 	public int getPlayerMove()
 	{
-		Console console = System.console();
-		String input = console.readLine("Select a square and press enter: ");
-		return getPlayerMove(input);
+		if(isHuman)
+		{
+			return getHumanMove();
+		}
+		return getComputerMove();
 	}
 	
-	private int getPlayerMove(String coord)
+	public int getHumanMove()
+	{
+		Console console = System.console();
+		String input = console.readLine("Select a square and press enter: ");
+		return getHumanMove(input);
+	}
+	
+	private int getHumanMove(String coord)
 	{
 		char letter = Character.toUpperCase(coord.charAt(0));
 		int multiplier = ((int) letter) - 65;
 		return multiplier * 3 + Character.getNumericValue(coord.charAt(1)) - 1;
+	}
+	
+	public int getComputerMove()
+	{
+		Random randomGenerator = new Random();
+		return randomGenerator.nextInt(9);
 	}
 }
