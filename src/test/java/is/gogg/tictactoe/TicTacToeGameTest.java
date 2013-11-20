@@ -49,8 +49,8 @@ public class TicTacToeGameTest {
     public void checkWhosTurnTest()
     {
       TicTacToeGame game = new TicTacToeGame();
-      game.makeTurn('X', number[0]);
-      assertTrue(!game.playersTurn(game.squares));
+      game.makeTurn('X', 0);
+      assertTrue(!game.playersTurn());
     }
 
 }

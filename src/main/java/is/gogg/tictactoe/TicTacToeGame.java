@@ -11,10 +11,10 @@ public class TicTacToeGame
 		squares = new char[9];
 	}
 	
-	public TicTacToeGame(char[] theSquares)
+	public TicTacToeGame(char[] squares)
 	{
-		squares = theSquares;
-		draw(theSquares);
+		squares = squares;
+		draw(squares);
 	}
 
 	public void makeTurn(char sign, int index)
@@ -83,12 +83,12 @@ public class TicTacToeGame
 	* If it´s player1´s turn, it returns true,
 	* false otherwise.
 	**/
-	public boolean playersTurn(char[] theSquares)
+	public boolean playersTurn()
 	{
 		int counterx = 0;
 		int countero = 0;
 
-		for (char s : theSquares)
+		for (char s : squares)
 		{
 			if (s == 'X')
 			{
@@ -108,7 +108,7 @@ public class TicTacToeGame
 		//WHEN GAME IS OVER.
 	}
 
-	public void draw(char[] theSquares)
+	public void draw(char[] squares)
 	{
 		// This function draws up the board
 
@@ -117,10 +117,10 @@ public class TicTacToeGame
 
 			if (i == 1 || i == 4 || i == 7)
 			{
-				System.out.print("|" + theSquares[i] + "|");
+				System.out.print("|" + squares[i] + "|");
 			}
 			else 
-				System.out.print(theSquares[i]);
+				System.out.print(squares[i]);
 			if (i == 2 && i == 5)
 			{
 				System.out.println("\n" + "------------");
