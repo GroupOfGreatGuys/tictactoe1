@@ -16,22 +16,21 @@ public class PlayerTest {
 		assertEquals('O', p2.getMarker());
    	 }
 	 
-	 /*@Test
-	 public void testPlayerMove()
+	 @Test
+	 public void testHumanMove()
 	 {
-		// Need to fix this since this function is now private
 		Player p = new Player();
-		assertEquals(0, p.getPlayerMove("A1"));
-		assertEquals(0, p.getPlayerMove("a1"));
-		assertEquals(1, p.getPlayerMove("a2"));
-		assertEquals(2, p.getPlayerMove("a3"));
-		assertEquals(3, p.getPlayerMove("b1"));
-		assertEquals(4, p.getPlayerMove("b2"));
-		assertEquals(5, p.getPlayerMove("b3"));
-		assertEquals(6, p.getPlayerMove("c1"));
-		assertEquals(7, p.getPlayerMove("c2"));
-		assertEquals(8, p.getPlayerMove("c3"));
-	 }*/
+		assertEquals(0, p.getHumanMove("A1"));
+		assertEquals(0, p.getHumanMove("a1"));
+		assertEquals(1, p.getHumanMove("a2"));
+		assertEquals(2, p.getHumanMove("a3"));
+		assertEquals(3, p.getHumanMove("b1"));
+		assertEquals(4, p.getHumanMove("b2"));
+		assertEquals(5, p.getHumanMove("b3"));
+		assertEquals(6, p.getHumanMove("c1"));
+		assertEquals(7, p.getHumanMove("c2"));
+		assertEquals(8, p.getHumanMove("c3"));
+	 }
 	 
 	 @Test
 	 public void testComputerMove()

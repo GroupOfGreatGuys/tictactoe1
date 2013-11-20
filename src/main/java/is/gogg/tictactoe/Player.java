@@ -59,7 +59,7 @@ public class Player
 		return getHumanMove(input);
 	}
 	
-	private int getHumanMove(String coord)
+	public int getHumanMove(String coord)
 	{
 		char letter = Character.toUpperCase(coord.charAt(0));
 		int multiplier = ((int) letter) - 65;
