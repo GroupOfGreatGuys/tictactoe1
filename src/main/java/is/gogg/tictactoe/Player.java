@@ -42,6 +42,7 @@ public class Player
 	
 	public int getPlayerMove(String coord)
 	{
-		return 0;
+		char letter = coord.charAt(0);
+		return (int) letter;
 	}
 }
