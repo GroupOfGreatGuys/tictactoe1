@@ -1,5 +1,7 @@
 package is.gogg.tictactoe;
 
+import java.io.Console;
+
 public class Player
 {
 	private char marker;
@@ -40,7 +42,14 @@ public class Player
 		return isHuman;
 	}
 	
-	public int getPlayerMove(String coord)
+	public int getPlayerMove()
+	{
+		Console console = System.console();
+		String input = console.readLine("Select a square and press enter: ");
+		return getPlayerMove(input);
+	}
+	
+	private int getPlayerMove(String coord)
 	{
 		char letter = Character.toUpperCase(coord.charAt(0));
 		int multiplier = ((int) letter) - 65;
