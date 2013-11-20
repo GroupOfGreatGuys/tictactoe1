@@ -70,5 +70,6 @@ public class Player
 	{
 		Random randomGenerator = new Random();
 		int index = randomGenerator.nextInt(9);
+		return index;
 	}
 }

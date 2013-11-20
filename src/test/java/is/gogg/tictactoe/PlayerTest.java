@@ -2,8 +2,8 @@ package is.gogg.tictactoe;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.*;
-
 import org.junit.Test;
+import java.util.ArrayList;
 
 
 public class PlayerTest {
@@ -36,11 +36,18 @@ public class PlayerTest {
 	 @Test
 	 public void testComputerMove()
 	 {
-		// Function returns a random number in the range 0-8
+		// Function returns a random number in the range 0-8, so very rarely this test may fail
 		Player p = new Player();
-		for(int i = 0; i < 20; i++)
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		for(int i = 0; i < 100; i++)
 		{
-			assertTrue(p.getComputerMove() >= 0 && p.getComputerMove() <= 8);
+			int a = p.getComputerMove();
+			assertTrue(a >= 0 && a <= 8);
+			list.add(a);
+		}
+		for(int i = 0; i <= 8; i++)
+		{
+			assertTrue(list.contains(i));
 		}
 	 }
 }
