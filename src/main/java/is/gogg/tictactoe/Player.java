@@ -42,7 +42,7 @@ public class Player
 	
 	public int getPlayerMove(String coord)
 	{
-		char letter = coord.charAt(0);
+		char letter = Character.toUpperCase(coord.charAt(0));
 		return (int) letter;
 	}
 }

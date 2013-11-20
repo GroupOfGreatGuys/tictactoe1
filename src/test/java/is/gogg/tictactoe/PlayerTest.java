@@ -20,6 +20,6 @@ public class PlayerTest {
 	 public void testPlayerMove()
 	 {
 		Player p = new Player();
-		assertEquals(65, p.getPlayerMove("A1"));
+		assertEquals(65, p.getPlayerMove("a1"));
 	 }
 }
