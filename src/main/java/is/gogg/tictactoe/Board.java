@@ -1,17 +1,17 @@
 package is.gogg.tictactoe;
 
-public class TicTacToeGame
+public class Board
 {
 	private char[] squares;
 	boolean gameOver;
 
-	public TicTacToeGame()
+	public Board()
 	{
 		gameOver = false;
 		squares = new char[9];
 	}
 	
-	public TicTacToeGame(char[] squares)
+	public Board(char[] squares)
 	{
 		squares = squares;
 		draw(squares);

@@ -69,6 +69,6 @@ public class Player
 	public int getComputerMove()
 	{
 		Random randomGenerator = new Random();
-		return randomGenerator.nextInt(9);
+		int index = randomGenerator.nextInt(9);
 	}
 }
