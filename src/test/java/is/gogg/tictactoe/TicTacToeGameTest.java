@@ -6,10 +6,10 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 
-public class TicTacToeGameTest {
+public class BoardTest {
 	@Test
 	public void checkConstructor() {
-		TicTacToeGame game = new TicTacToeGame();
+		Board game = new Board();
 		assertFalse(game.isGameOver());
    	 }
 /*
@@ -35,7 +35,7 @@ public class TicTacToeGameTest {
 	     int[] number = new int[] {0,1,2,3,4,5,6,7,8,0,3,6,1,4,7,2,5,8,0,4,8,2,4,6};
    	    for(int i = 0; i < 24; i = i + 3)
 	     {
-		    TicTacToeGame game = new TicTacToeGame();
+		    Board game = new Board();
    		   game.makeTurn('x',number[i]);
 		      game.makeTurn('x',number[i+1]);
    		     game.makeTurn('x',number[i+2]);
@@ -48,7 +48,7 @@ public class TicTacToeGameTest {
     @Test
     public void checkWhosTurnTest()
     {
-      TicTacToeGame game = new TicTacToeGame();
+      Board game = new Board();
       game.makeTurn('X', 0);
       assertTrue(!game.playersTurn());
     }
