@@ -20,6 +20,15 @@ public class PlayerTest {
 	 public void testPlayerMove()
 	 {
 		Player p = new Player();
-		assertEquals(65, p.getPlayerMove("a1"));
+		assertEquals(0, p.getPlayerMove("A1"));
+		assertEquals(0, p.getPlayerMove("a1"));
+		assertEquals(1, p.getPlayerMove("a2"));
+		assertEquals(2, p.getPlayerMove("a3"));
+		assertEquals(3, p.getPlayerMove("b1"));
+		assertEquals(4, p.getPlayerMove("b2"));
+		assertEquals(5, p.getPlayerMove("b3"));
+		assertEquals(6, p.getPlayerMove("c1"));
+		assertEquals(7, p.getPlayerMove("c2"));
+		assertEquals(8, p.getPlayerMove("c3"));
 	 }
 }

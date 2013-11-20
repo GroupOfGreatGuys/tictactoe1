@@ -43,6 +43,7 @@ public class Player
 	public int getPlayerMove(String coord)
 	{
 		char letter = Character.toUpperCase(coord.charAt(0));
-		return (int) letter;
+		int multiplier = ((int) letter) - 65;
+		return multiplier * 3 + Character.getNumericValue(coord.charAt(1)) - 1;
 	}
 }
