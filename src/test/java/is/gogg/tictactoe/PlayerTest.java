@@ -15,4 +15,11 @@ public class PlayerTest {
 		Player p2 = new Player(false);
 		assertEquals('O', p2.getMarker());
    	 }
+	 
+	 @Test
+	 public void testPlayerMove()
+	 {
+		Player p = new Player();
+		assertEquals(p.getPlayerMove("A1"), 0);
+	 }
 }
