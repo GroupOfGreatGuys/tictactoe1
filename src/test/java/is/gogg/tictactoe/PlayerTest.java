@@ -8,7 +8,11 @@ import org.junit.Test;
 
 public class PlayerTest {
 	@Test
-	public void testConstructor() {
-		assertEquals(1,1);
+	public void testBoolConstructor() {
+		Player p1 = new Player(true);
+		assertEquals('X', p1.getMarker());
+		
+		Player p2 = new Player(false);
+		assertEquals('O', p2.getMarker());
    	 }
 }
