@@ -126,5 +126,13 @@ public class Board
 		return gameOver;
 	}
 
+	 public boolean isTaken(int number)
+        {
 
+        	if (this.squares[number] == 'X' || this.squares[number] == 'O')
+        	{
+        		return true;
+        	}
+                return false;
+        }
 }
