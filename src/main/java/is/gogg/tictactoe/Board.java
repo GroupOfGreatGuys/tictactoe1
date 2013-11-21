@@ -14,6 +14,10 @@ public class Board
 
 	public boolean makeTurn(char sign, int index)
 	{
+		if(index < 0 || index > 8)
+		{
+			return false;
+		}
 		// Makes a player turn, puts the player's sign in the correct index
 		squares[index] = sign;
 		return true;
