@@ -45,4 +45,38 @@ public class BoardTest {
     	   	assertTrue(game.checkForWin('X'));
 	     }
     }
+<<<<<<< HEAD
+=======
+
+    //Tests if it is Player2's turn.
+    @Test
+    public void checkWhosTurnTest() {
+      Board game = new Board();
+      game.makeTurn('X', 0);
+      assertTrue(!game.playersTurn());
+    }
+
+	@Test
+        public void isTakenTest(){
+       	
+       	Board game = new Board();
+     
+     	for (int i  = 0 ; i < 9 ; i++)
+     	{
+     		game.makeTurn('X',i);
+     	}
+     	for(int i = 0;  i < 9; i++)
+     	{
+     		assertTrue(game.isTaken(i));
+     	}
+
+     	Board board = new Board();
+
+     	for(int i = 0;  i < 9; i++)
+     	{
+     		assertFalse(board.isTaken(i));
+     	}
+
+     }
+>>>>>>> f5ce75c90b36f004b99de54232d9a27a4c00c124
 }
