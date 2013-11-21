@@ -4,6 +4,8 @@ public class TicTacToe
 {
         public static void main(String[] args)
         {
-                System.out.println("Let's play");
+            System.out.println("Let's play");
+			Board b = new Board();
+			b.draw();
         }
 }

@@ -1,3 +1,5 @@
+package is.gogg.tictactoe;
+
 public class Board
 {
 	private char[] squares;
@@ -81,23 +83,20 @@ public class Board
 		// Checks if the game is over
 	}
 
-	public void draw(char[] squares)
+	public void draw()
 	{
 		// This function draws up the board
-
+		System.out.print("   A | B | C ");
 		for (int i = 0; i < 9; i++)
 		{
-
-			if (i == 1 || i == 4 || i == 7)
+			if(i % 3 == 0)
 			{
-				System.out.print("|" + squares[i] + "|");
+				System.out.println("");
+				System.out.print("  -----------");
+				System.out.println("");
+				System.out.print((i + 3) / 3);
 			}
-			else 
-				System.out.print(squares[i]);
-			if (i == 2 && i == 5)
-			{
-				System.out.println("\n" + "------------");
-			}
+			System.out.print("| " + squares[i] + " ");			
 		}
 	}
 
