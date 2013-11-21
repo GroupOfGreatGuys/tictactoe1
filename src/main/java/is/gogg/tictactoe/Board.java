@@ -14,7 +14,7 @@ public class Board
 
 	public boolean makeTurn(char sign, int index)
 	{
-		// This should never happen since valid index checking is not done here
+		// This should never happen since valid index checking is done previously
 		if(index < 0 || index > 8)
 		{
 			return false;

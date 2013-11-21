@@ -42,6 +42,22 @@ public class BoardTest {
 			assertTrue(b.makeTurn('X', i));
 		}
 	}
+	
+	@Test
+	public void testMakeTurnWithInvalidSquare()
+	{
+		Board b = new Board();
+		boolean temp;
+		for(int i = 0; i <= 8; i++)
+		{
+			temp = b.makeTurn('X', i);
+		}
+		for(int i = 0; i <= 8; i++)
+		{
+			assertFalse(b.makeTurn('X', i));
+		}
+	}
+	
 	@Test
     public void checkForWinTest()
     {
