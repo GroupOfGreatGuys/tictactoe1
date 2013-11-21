@@ -1,29 +1,32 @@
 public class Board
 {
-	private char[] squares;
+        private char[] squares;
+        boolean gameOver;
 
-	public Board()
-	{
-		squares = new char[9];
-	}
-	
-	public Board(char[] theSquares)
-	{
-		squares = theSquares;
-	}
+        public Board()
+        {
+                gameOver = false;
+                squares = new char[9];
+        }
+        
+        public Board(char[] squares)
+        {
+                squares = squares;
+                draw(squares);
+        }
 
-	public boolean makeTurn(char sign, int index)
-	{
-		// Makes a player turn, puts the player's sign in the correct index
-		squares[index] = sign;
-		return true;
-	}
-	
-	public boolean checkForWin(char sign)
-	{
-		if (squares[0] == sign &&
-               	squares[1] == sign &&
-               	squares[2] == sign) {
+        public void makeTurn(char sign, int index)
+        {
+                // Makes a player turn, puts the player's sign in the correct index
+                squares[index] = sign;
+                gameOver = checkForWin(sign);
+        }
+        
+        public boolean checkForWin(char sign)
+        {
+                if (squares[0] == sign &&
+                       squares[1] == sign &&
+                       squares[2] == sign) {
                     return true;
                 }
 
@@ -68,55 +71,68 @@ public class Board
                    squares[6] == sign) {
                     return true;
                 }
-		return false;
-		// Checks if the game is over
-	}
+                return false;
+                // Checks if the game is over
+        }
 
 
-	public boolean playersTurn()
-	{
-		int counterx = 0;
-		int countero = 0;
+        public boolean playersTurn()
+        {
+                int counterx = 0;
+                int countero = 0;
 
-		for (char s : squares)
-		{
-			if (s == 'X')
-			{
-				counterx++;
-			}
-			else if (s == 'O')
-			{
-				countero++;
-			}
-		}
-		if (counterx == countero)
-		{
-			return true;
-		}
-		return false;
-		//TODO: MAKE SURE THIS FUNCTION IS NOT CALLED
-		//WHEN GAME IS OVER.
-	}
+                for (char s : squares)
+                {
+                        if (s == 'X')
+                        {
+                                counterx++;
+                        }
+                        else if (s == 'O')
+                        {
+                                countero++;
+                        }
+                }
+                if (counterx == countero)
+                {
+                        return true;
+                }
+                return false;
+                //TODO: MAKE SURE THIS FUNCTION IS NOT CALLED
+                //WHEN GAME IS OVER.
+        }
 
-	public void draw(char[] squares)
-	{
-		// This function draws up the board
+        public void draw(char[] squares)
+        {
+                // This function draws up the board
 
-		for (int i = 0; i < 9; i++)
-		{
+                for (int i = 0; i < 9; i++)
+                {
 
-			if (i == 1 || i == 4 || i == 7)
-			{
-				System.out.print("|" + squares[i] + "|");
-			}
-			else 
-				System.out.print(squares[i]);
-			if (i == 2 && i == 5)
-			{
-				System.out.println("\n" + "------------");
-			}
-		}
-	}
+                        if (i == 1 || i == 4 || i == 7)
+                        {
+                                System.out.print("|" + squares[i] + "|");
+                        }
+                        else 
+                                System.out.print(squares[i]);
+                        if (i == 2 && i == 5)
+                        {
+                                System.out.println("\n" + "------------");
+                        }
+                }
+        }
+        
+        public boolean isGameOver()
+        {
+                return gameOver;
+        }
 
+         public boolean isTaken(int number)
+        {
 
+                if (this.squares[number] == 'X' || this.squares[number] == 'O')
+                {
+                        return true;
+                }
+                return false;
+        }
 }
