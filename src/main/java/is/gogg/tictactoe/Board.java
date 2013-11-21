@@ -1,5 +1,3 @@
-package is.gogg.tictactoe;
-
 public class Board
 {
 	private char[] squares;
@@ -78,11 +76,6 @@ public class Board
 	}
 
 
-	/**
-	* Boolean method which checks whos turn it is.
-	* If it´s player1´s turn, it returns true,
-	* false otherwise.
-	**/
 	public boolean playersTurn()
 	{
 		int counterx = 0;
