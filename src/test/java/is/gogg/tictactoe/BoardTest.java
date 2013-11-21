@@ -68,7 +68,7 @@ public void isTakenTest() {
 
      	for(int i = 0;  i < 9; i++)
      	{
-     		assertTrue(game.isTaken(i));
+     		assertTrue(board.isTaken(i));
      	}
 
      	}
