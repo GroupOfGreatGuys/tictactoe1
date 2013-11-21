@@ -14,13 +14,18 @@ public class Board
 
 	public boolean makeTurn(char sign, int index)
 	{
+		// This should never happen since valid index checking is not done here
 		if(index < 0 || index > 8)
 		{
 			return false;
 		}
 		// Makes a player turn, puts the player's sign in the correct index
-		squares[index] = sign;
-		return true;
+		if(!isTaken(index))
+		{
+			squares[index] = sign;
+			return true;
+		}
+		return false;
 	}
 	
 	public boolean checkForWin(char sign)
