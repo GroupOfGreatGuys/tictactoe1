@@ -52,25 +52,4 @@ public class BoardTest {
       assertTrue(!game.playersTurn());
     }
 
- @test 
-public void isTakenTest() {       	
-       	Board game = new Board()
-     	for (int i  = 0 ; i < 9 ; i++)
-     	{
-     		game.makeTurn('X',i);
-     	}
-     	for(int i = 0;  i < 9; i++)
-     	{
-     		assertFalse(game.isTaken(i));
-     	}
-
-     	Board board = new board();
-
-     	for(int i = 0;  i < 9; i++)
-     	{
-     		assertTrue(board.isTaken(i));
-     	}
-
-     	}
-	
 }
