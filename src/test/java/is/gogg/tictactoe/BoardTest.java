@@ -18,6 +18,16 @@ public class BoardTest {
 
     }
 */
+
+	@Test
+	public void testMakeTurnWithInvalidIndex()
+	{
+		Board b = new Board();
+		for(int i = 9; i < 2500; i = i * 2)
+		assertFalse(b.makeTurn('X', i));
+		assertFalse(b.makeTurn('X', 9));
+	}
+	
  @Test
     public void checkForWinTest()
     {
@@ -35,13 +45,4 @@ public class BoardTest {
     	   	assertTrue(game.checkForWin('X'));
 	     }
     }
-
-    //Tests if it is Player2's turn.
-    @Test
-    public void checkWhosTurnTest() {
-      Board game = new Board();
-      game.makeTurn('X', 0);
-      assertTrue(!game.playersTurn());
-    }
-
 }
