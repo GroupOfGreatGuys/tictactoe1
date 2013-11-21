@@ -33,7 +33,16 @@ public class BoardTest {
 		}
 	}
 	
- @Test
+	@Test
+	public void testMakeTurnWithValidIndex()
+	{
+		Board b = new Board();
+		for(int i = 0; i <= 8; i++)
+		{
+			assertTrue(b.makeTurn('X', i));
+		}
+	}
+	@Test
     public void checkForWinTest()
     {
 
