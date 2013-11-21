@@ -82,22 +82,17 @@ public class BoardTest {
         public void isTakenTest(){
        	
        	Board game = new Board();
-     
+     	assertFalse(game.isTaken(0));
      	for (int i  = 0 ; i < 9 ; i++)
      	{
      		game.makeTurn('X',i);
-     	}
-     	for(int i = 0;  i < 9; i++)
-     	{
+		
      		assertTrue(game.isTaken(i));
+		if (i < 8)
+		{
+			assertFalse(game.isTaken(i+1));
+		} 
+	}
+
      	}
-
-     	Board board = new Board();
-
-     	for(int i = 0;  i < 9; i++)
-     	{
-     		assertFalse(board.isTaken(i));
-     	}
-
-     }
 }
