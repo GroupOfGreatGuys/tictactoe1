@@ -1,25 +1,22 @@
 public class Board
 {
 	private char[] squares;
-	boolean gameOver;
 
 	public Board()
 	{
-		gameOver = false;
 		squares = new char[9];
 	}
 	
-	public Board(char[] squares)
+	public Board(char[] theSquares)
 	{
-		squares = squares;
-		draw(squares);
+		squares = theSquares;
 	}
 
-	public void makeTurn(char sign, int index)
+	public boolean makeTurn(char sign, int index)
 	{
 		// Makes a player turn, puts the player's sign in the correct index
 		squares[index] = sign;
-		gameOver = checkForWin(sign);
+		return true;
 	}
 	
 	public boolean checkForWin(char sign)
@@ -119,11 +116,6 @@ public class Board
 				System.out.println("\n" + "------------");
 			}
 		}
-	}
-	
-	public boolean isGameOver()
-	{
-		return gameOver;
 	}
 
 
