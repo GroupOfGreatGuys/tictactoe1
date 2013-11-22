@@ -103,6 +103,7 @@ public class Board
 			}
 			System.out.print("| " + squares[i] + " ");			
 		}
+		System.out.println("");
 	}
 
 	public boolean isTaken(int number)
