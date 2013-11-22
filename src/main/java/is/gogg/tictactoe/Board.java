@@ -86,7 +86,12 @@ public class Board
 	public void draw()
 	{
 		// This function draws up the board
-		System.out.print("   A | B | C ");
+		char[] letters = new char[3];
+		letters[0] = 'A';
+		letters[1] = 'B';
+		letters[2] = 'C';
+		System.out.println("");
+		System.out.print("   1 | 2 | 3 ");
 		for (int i = 0; i < 9; i++)
 		{
 			if(i % 3 == 0)
@@ -94,7 +99,7 @@ public class Board
 				System.out.println("");
 				System.out.print("  -----------");
 				System.out.println("");
-				System.out.print((i + 3) / 3);
+				System.out.print(letters[((i + 3) / 3) - 1]);
 			}
 			System.out.print("| " + squares[i] + " ");			
 		}
