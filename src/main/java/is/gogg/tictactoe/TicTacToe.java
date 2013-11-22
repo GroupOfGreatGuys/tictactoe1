@@ -1,6 +1,8 @@
 package is.gogg.tictactoe;
 
 import java.util.Scanner;
+import static spark.Spark.*;
+import spark.*;
 
 public class TicTacToe
 {
@@ -60,7 +62,8 @@ public class TicTacToe
 		
         public static void main(String[] args)
         {
-			Scanner sc = new Scanner(System.in);
+			staticFileLocation("/public");
+			/*Scanner sc = new Scanner(System.in);
 			char marker;
 			do
 			{
@@ -80,6 +83,23 @@ public class TicTacToe
             System.out.println("Let's play");
 			Board b = new Board();
 			TicTacToe tictactoe = new TicTacToe(b, human, cpu);
-			tictactoe.playGame();
+			tictactoe.playGame();*/
+			post(new Route("/setMarker") {
+            @Override
+            public Object handle(Request request, Response response) {
+                String a = String.valueOf(request.queryParams("marker"));
+				System.out.println(a);
+                return a;
+            }
+        });
+		post(new Route("/getSquare") {
+            @Override
+            public Object handle(Request request, Response response) {
+				Player p = new Player();
+                String a = String.valueOf(request.queryParams("square"));
+				System.out.println(a);
+                return p.getHumanMove(a) + 1;
+            }
+        });
         }
 }
