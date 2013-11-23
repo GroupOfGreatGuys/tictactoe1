@@ -108,11 +108,24 @@ public class Board
 
 	public boolean isTaken(int number)
         {
-
+			System.out.println(number);
         	if (this.squares[number] == 'X' || this.squares[number] == 'O')
         	{
+        		System.out.println(number);
         		return true;
         	}
                 return false;
         }
+
+    public boolean isTie()
+    {
+    	for (int i = 0; i < 9; i++)
+    	{
+    		if (!isTaken(i))
+    		{
+    			return false;
+    		}
+    	}
+    	return true;
+    }
 }

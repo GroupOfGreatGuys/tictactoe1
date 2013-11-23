@@ -117,8 +117,14 @@ public class TicTacToe
 					do
 					{
 						p2Square = p2.getPlayerMove();
+						
+						if(board.isTie())
+						{
+							
+							return (String.valueOf(p1Square) + "ht"); 
+						}
 						valid = board.makeTurn(p2.getMarker(), p2Square);
-						System.out.println(p2.getMarker());
+						
 					}while(!valid);
 				}
 				else
@@ -132,6 +138,7 @@ public class TicTacToe
 					valid = board.makeTurn(p1.getMarker(), p1Square);
 				}
 				valueToReturn = valueToReturn + String.valueOf(p1Square) + String.valueOf(p2Square);
+				
 				if(board.checkForWin(p1.getMarker()))
 				{
 					valueToReturn =  valueToReturn + 'w';
@@ -140,15 +147,7 @@ public class TicTacToe
 				{
 					valueToReturn = valueToReturn + 'l';
 				}
-				for(int i = 0; i < 9; i++)
-				{
-					if(!board.isTaken(i))
-					{
-						System.out.println(valueToReturn);
-						return valueToReturn;
-					}
-				}
-				valueToReturn = valueToReturn + 't';
+				
 				return valueToReturn;
             }
         });
