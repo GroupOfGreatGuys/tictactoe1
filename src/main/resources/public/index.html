@@ -28,21 +28,21 @@
     </div>
 	<table id="ticTacToe">
     <tr class="ticTacToeRow">
-        <td class="ticTacToeButton" id="cell0"></td>
-        <td class="ticTacToeButton" id="cell1"></td>
-        <td class="ticTacToeButton" id="cell2"></td>
+        <td class="ticTacToeButton" id="cell0" name="a1"></td>
+        <td class="ticTacToeButton" id="cell1" name="a2"></td>
+        <td class="ticTacToeButton" id="cell2" name="a3" ></td>
     </tr>
 
     <tr class="ticTacToeRow">
-        <td class="ticTacToeButton" id="cell3"></td>
-        <td class="ticTacToeButton" id="cell4"></td>
-        <td class="ticTacToeButton" id="cell5"></td>
+        <td class="ticTacToeButton" id="cell3" name="b1"></td>
+        <td class="ticTacToeButton" id="cell4" name="b2" ></td>
+        <td class="ticTacToeButton" id="cell5" name="b3"></td>
     </tr>
 
     <tr class="ticTacToeRow">
-        <td class="ticTacToeButton" id="cell6"></td>
-        <td class="ticTacToeButton" id="cell7"></td>
-        <td class="ticTacToeButton" id="cell8"></td>
+        <td class="ticTacToeButton" id="cell6" name="c1"></td>
+        <td class="ticTacToeButton" id="cell7" name="c2"></td>
+        <td class="ticTacToeButton" id="cell8" name="c3"></td>
     </tr>
 	</table>
 	
@@ -61,10 +61,12 @@
     <!-- use ajax to submit form, retreive the result and display on the page -->
     <script>
     $(document).ready(function() {
+
       var form = $('form');
 	  var firstForm = 0;
       form.submit(function(e) {
         var marker = $("#marker").val();
+
         $.ajax({
           type: form.attr('method'),
           url: form.attr('action'),
@@ -78,13 +80,23 @@
         e.preventDefault();
       });
 	  var squareForm = $('#squareForm');
-	  squareForm.submit(function(e) {
-		var square = $("#squarePicked").val();
+    var bla  = $('.ticTacToeButton');
+
+	  bla.click(function(e) {
+	
+   var blonster = $(this).attr('name');
+   
+
+   square = 'a1';
+
+
 		$.ajax({
+
           type: squareForm.attr('method'),
           url: squareForm.attr('action'),
-          data: 'square=' + square
+          data: 'square=' + blonster
         }).done(function(returnValue) {
+        
 			$('#cell' + returnValue[0]).html('X').attr('class', 'alert alert-success');
 			$('#cell' + returnValue[1]).html('O').attr('class', 'alert alert-success');
 			if(returnValue[2] == 't'){
@@ -92,9 +104,11 @@
 			}
 			if(returnValue[2] == 'w'){
 				$('#gameResult').html("You have won!!!!");
+
 			}
 			if(returnValue[2] == 'l'){
 				$('#gameResult').html("You LOSE!");
+
 			}
         }).fail(function() {
           $('#results').html('Ekki vera heimskur');
