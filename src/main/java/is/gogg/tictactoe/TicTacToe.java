@@ -87,7 +87,7 @@ public class TicTacToe
 			post(new Route("/setMarker") {
             @Override
             public Object handle(Request request, Response response) {
-                char marker = String.valueOf(request.queryParams("marker")).charAt(0);
+                char marker = Character.toUpperCase(String.valueOf(request.queryParams("marker")).charAt(0));
 				System.out.println(marker);
                 p1 = new Player(true, marker);
 				if(marker == 'X')
@@ -118,6 +118,7 @@ public class TicTacToe
 					{
 						p2Square = p2.getPlayerMove();
 						valid = board.makeTurn(p2.getMarker(), p2Square);
+						System.out.println(p2.getMarker());
 					}while(!valid);
 				}
 				else
