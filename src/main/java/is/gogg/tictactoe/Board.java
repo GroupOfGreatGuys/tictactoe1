@@ -108,10 +108,8 @@ public class Board
 
 	public boolean isTaken(int number)
         {
-			System.out.println(number);
         	if (this.squares[number] == 'X' || this.squares[number] == 'O')
         	{
-        		System.out.println(number);
         		return true;
         	}
                 return false;

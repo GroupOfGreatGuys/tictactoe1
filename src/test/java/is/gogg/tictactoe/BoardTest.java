@@ -95,4 +95,22 @@ public class BoardTest {
 	}
 
      	}
+
+	@Test
+	public void isTieTest()
+	{
+		Board game = new Board();
+		for (int i = 0; i < 9; i++)
+		{
+		   if(i == 0 || i == 1 || i == 5 || i == 6 || i ==8)
+			{
+			   game.makeTurn('X', i);
+			}
+		  else {
+			game.makeTurn('O', i);
+			}
+		}
+		
+		assertTrue(game.isTie());
+	}
 }
