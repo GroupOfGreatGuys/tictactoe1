@@ -16,7 +16,7 @@
 
       <p>Veldu x eða o</p>
 
-      <form method="post" action="/setMarker" class="form-inline" role="form">
+      <form method="post" action="/setMarker" class="form-inline" role="form" id="firstForm">
         <div class="form-group">
           <input type="text" class="form-control" name="marker" id="marker" placeholder="Stafur">
         </div>
@@ -28,21 +28,21 @@
     </div>
 	<table id="ticTacToe">
     <tr class="ticTacToeRow">
+        <td class="ticTacToeButton" id="cell0"></td>
         <td class="ticTacToeButton" id="cell1"></td>
         <td class="ticTacToeButton" id="cell2"></td>
-        <td class="ticTacToeButton" id="cell3"></td>
     </tr>
 
     <tr class="ticTacToeRow">
+        <td class="ticTacToeButton" id="cell3"></td>
         <td class="ticTacToeButton" id="cell4"></td>
         <td class="ticTacToeButton" id="cell5"></td>
-        <td class="ticTacToeButton" id="cell6"></td>
     </tr>
 
     <tr class="ticTacToeRow">
+        <td class="ticTacToeButton" id="cell6"></td>
         <td class="ticTacToeButton" id="cell7"></td>
         <td class="ticTacToeButton" id="cell8"></td>
-        <td class="ticTacToeButton" id="cell9"></td>
     </tr>
 	</table>
 	
@@ -50,8 +50,10 @@
         <div class="form-group">
           <input type="text" class="form-control" name="squarePicked" id="squarePicked" placeholder="Stafur">
         </div>
-        <button type="submit" class="btn btn-default">Veldu reit hálfviti</button>
+        <button type="submit" class="btn btn-default" id="secondForm">Veldu reit</button>
       </form>
+	 
+	 <div id="gameResult"></div>
 
     <!-- load jquery -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -60,6 +62,7 @@
     <script>
     $(document).ready(function() {
       var form = $('form');
+	  var firstForm = 0;
       form.submit(function(e) {
         var marker = $("#marker").val();
         $.ajax({
@@ -68,8 +71,9 @@
           data: 'marker=' + marker
         }).done(function(setMarker) {
 		  $('#results').html('Þú ert ' + setMarker);
+		  $("form#firstForm")[0].reset();
         }).fail(function() {
-          $('#results').html('Ekki vera heimskur');
+          $('#results').html('What happened?');
         });
         e.preventDefault();
       });
@@ -80,8 +84,18 @@
           type: squareForm.attr('method'),
           url: squareForm.attr('action'),
           data: 'square=' + square
-        }).done(function(theSquare) {
-		  $('#cell' + theSquare).html('X').attr('class', 'alert alert-success');
+        }).done(function(returnValue) {
+			$('#cell' + returnValue[0]).html('X').attr('class', 'alert alert-success');
+			$('#cell' + returnValue[1]).html('O').attr('class', 'alert alert-success');
+			if(returnValue[2] == 't'){
+				$('#gameResult').html("It's a TIE");
+			}
+			if(returnValue[2] == 'w'){
+				$('#gameResult').html("You have won!!!!");
+			}
+			if(returnValue[2] == 'l'){
+				$('#gameResult').html("You LOSE!");
+			}
         }).fail(function() {
           $('#results').html('Ekki vera heimskur');
         });

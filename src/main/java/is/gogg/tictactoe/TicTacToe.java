@@ -6,9 +6,9 @@ import spark.*;
 
 public class TicTacToe
 {
-		private Board board;
-		private Player p1;
-		private Player p2;
+		private static Board board;
+		private static Player p1;
+		private static Player p2;
 		
 		public TicTacToe(Board b, Player player1, Player player2)
 		{
@@ -87,18 +87,68 @@ public class TicTacToe
 			post(new Route("/setMarker") {
             @Override
             public Object handle(Request request, Response response) {
-                String a = String.valueOf(request.queryParams("marker"));
-				System.out.println(a);
-                return a;
+                char marker = String.valueOf(request.queryParams("marker")).charAt(0);
+				System.out.println(marker);
+                p1 = new Player(true, marker);
+				if(marker == 'X')
+				{
+					p2 = new Player(false, 'O');
+				}
+				else
+				{
+					p2 = new Player(false, 'X');
+				}
+				board = new Board();
+				return marker;
             }
         });
 		post(new Route("/getSquare") {
             @Override
             public Object handle(Request request, Response response) {
-				Player p = new Player();
-                String a = String.valueOf(request.queryParams("square"));
-				System.out.println(a);
-                return p.getHumanMove(a) + 1;
+				String square = String.valueOf(request.queryParams("square"));
+				String valueToReturn = "";
+				int p1Square;
+				int p2Square;
+				boolean valid;
+				if(p1.getMarker() == 'X')
+				{
+					p1Square = p1.getHumanMove(square);
+					valid = board.makeTurn(p1.getMarker(), p1Square);
+					do
+					{
+						p2Square = p2.getPlayerMove();
+						valid = board.makeTurn(p2.getMarker(), p2Square);
+					}while(!valid);
+				}
+				else
+				{
+					do
+					{
+						p2Square = p2.getPlayerMove();
+						valid = board.makeTurn(p2.getMarker(), p2Square);
+					}while(!valid);
+					p1Square = p1.getHumanMove(square);
+					valid = board.makeTurn(p1.getMarker(), p1Square);
+				}
+				valueToReturn = valueToReturn + String.valueOf(p1Square) + String.valueOf(p2Square);
+				if(board.checkForWin(p1.getMarker()))
+				{
+					valueToReturn =  valueToReturn + 'w';
+				}
+				else if(board.checkForWin(p2.getMarker()))
+				{
+					valueToReturn = valueToReturn + 'l';
+				}
+				for(int i = 0; i < 9; i++)
+				{
+					if(!board.isTaken(i))
+					{
+						System.out.println(valueToReturn);
+						return valueToReturn;
+					}
+				}
+				valueToReturn = valueToReturn + 't';
+				return valueToReturn;
             }
         });
         }
