@@ -20,9 +20,9 @@ public class TicTacToeWeb
         public static void main(String[] args)
         {
 			staticFileLocation("/public");
+			setPort(Integer.valueOf(System.getenv("PORT")));
 			post(new Route("/setMarker") {
 	
-			setPort(Integer.valueOf(System.getenv("PORT")));
 
             @Override
             public Object handle(Request request, Response response) {
