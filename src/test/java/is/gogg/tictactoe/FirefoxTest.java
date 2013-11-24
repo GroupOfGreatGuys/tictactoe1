@@ -1,4 +1,5 @@
-package com.example.tests;
+package is.gogg.tictactoe;
+//package com.example.tests;
 
 import com.thoughtworks.selenium.Selenium;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -11,7 +12,8 @@ import static org.junit.Assert.*;
 import java.util.regex.Pattern;
 import static org.apache.commons.lang3.StringUtils.join;
 
-public class testTest {
+
+public class FirefoxTest {
 	private Selenium selenium;
 
 	@Before
@@ -33,7 +35,7 @@ public class testTest {
 		selenium.type("id=marker", "x");
 		selenium.click("css=button.btn.btn-default");
 		Thread.sleep(2000);
-		assertEquals("Þú ert X", selenium.getText("id=results"));
+		assertEquals("You are X", selenium.getText("id=results"));
 	}
 	
 	@Test
