@@ -21,6 +21,9 @@ public class TicTacToeWeb
         {
 			staticFileLocation("/public");
 			post(new Route("/setMarker") {
+	
+			setPort(Integer.valueOf(System.getenv("PORT")));
+
             @Override
             public Object handle(Request request, Response response) {
                 char marker = Character.toUpperCase(String.valueOf(request.queryParams("marker")).charAt(0));
