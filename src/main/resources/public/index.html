@@ -7,18 +7,18 @@
 
     <!-- load bootstrap for nicer ui -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-	<link href="/css/Site.css" rel="stylesheet">
+        <link href="/css/Site.css" rel="stylesheet">
   </head>
   <body>
 
     <div class="container">
       <h1>Tictactoe</h1>
 
-      <p>Select X or O</p>
+      <p>Select x or o</p>
 
       <form method="post" action="/setMarker" class="form-inline" role="form" id="firstForm">
         <div class="form-group">
-          <input type="text" class="form-control" name="marker" id="marker" placeholder="Stafur">
+          <input type="text" class="form-control" name="marker" id="marker" placeholder="Pick x or o">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
@@ -26,7 +26,7 @@
       <div id="results">
       </div>
     </div>
-	<table id="ticTacToe">
+        <table id="ticTacToe">
     <tr class="ticTacToeRow">
         <td class="ticTacToeButton" id="cell0" name="a1"></td>
         <td class="ticTacToeButton" id="cell1" name="a2"></td>
@@ -44,10 +44,10 @@
         <td class="ticTacToeButton" id="cell7" name="c2"></td>
         <td class="ticTacToeButton" id="cell8" name="c3"></td>
     </tr>
-	</table>
-	
-	 
-	 <div id="gameResult"></div>
+        </table>
+        
+         
+         <div id="gameResult"></div>
 
     <!-- load jquery -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -57,7 +57,7 @@
     $(document).ready(function() {
 
       var form = $('form');
-	  var firstForm = 0;
+          var firstForm = 0;
       form.submit(function(e) {
         var marker = $("#marker").val();
 
@@ -66,39 +66,39 @@
           url: form.attr('action'),
           data: 'marker=' + marker
         }).done(function(setMarker) {
-		  $('#results').html('Þú ert ' + setMarker);
-		  $("form#firstForm")[0].reset();
+                  $('#results').html('Þú ert ' + setMarker);
+                  $("form#firstForm")[0].reset();
         }).fail(function() {
           $('#results').html('What happened?');
         });
         e.preventDefault();
       });
-	  var squareForm = $('#squareForm');
+          var squareForm = $('#squareForm');
     var bla  = $('.ticTacToeButton');
 
-	  bla.click(function(e) {
-	
+          bla.click(function(e) {
+        
    var blonster = $(this).attr('name');
-		$.ajax({
+                $.ajax({
 
           type: squareForm.attr('method'),
           url: squareForm.attr('action'),
           data: 'square=' + blonster
         }).done(function(returnValue) {
         
-			$('#cell' + returnValue[0]).html('X').attr('class', 'alert alert-success');
-			$('#cell' + returnValue[1]).html('O').attr('class', 'alert alert-success');
-			if(returnValue[2] == 't'){
-				$('#gameResult').html("It's a TIE");
-			}
-			if(returnValue[2] == 'w'){
-				$('#gameResult').html("You have won!!!!");
+                        $('#cell' + returnValue[0]).html('X').attr('class', 'alert alert-success');
+                        $('#cell' + returnValue[1]).html('O').attr('class', 'alert alert-success');
+                        if(returnValue[2] == 't'){
+                                $('#gameResult').html("It's a TIE");
+                        }
+                        if(returnValue[2] == 'w'){
+                                $('#gameResult').html("You have won!!!!");
 
-			}
-			if(returnValue[2] == 'l'){
-				$('#gameResult').html("You LOSE!");
+                        }
+                        if(returnValue[2] == 'l'){
+                                $('#gameResult').html("You LOSE!");
 
-			}
+                        }
         }).fail(function() {
           $('#results').html('Select X or O');
         });
