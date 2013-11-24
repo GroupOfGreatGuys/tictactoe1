@@ -14,7 +14,7 @@
     <div class="container">
       <h1>Tictactoe</h1>
 
-      <p>Select X or Oo</p>
+      <p>Select X or O</p>
 
       <form method="post" action="/setMarker" class="form-inline" role="form" id="firstForm">
         <div class="form-group">
@@ -55,6 +55,7 @@
       </form>
          
          <div id="gameResult"></div>
+	<div id="squareFail"></div>
 
     <!-- load jquery -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -84,7 +85,7 @@
     var bla  = $('.ticTacToeButton');
 
           bla.click(function(e) {
-        
+       if($(this).innerHTML() == "") {
    var blonster = $(this).attr('name');
                 $.ajax({
 
@@ -110,7 +111,12 @@
           $('#results').html('Select X or O');
         });
         e.preventDefault();
-      });
+	}
+	else
+	{
+		$("#squareFail").html("select a valid square");
+        }
+	});
     });
     </script>
   </body>
