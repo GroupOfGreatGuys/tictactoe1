@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+CTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -14,13 +14,13 @@
     <div class="container">
       <h1>Tictactoe</h1>
 
-      <p>Select x or o</p>
+      <p>Veldu x eða o</p>
 
       <form method="post" action="/setMarker" class="form-inline" role="form" id="firstForm">
         <div class="form-group">
-          <input type="text" class="form-control" name="marker" id="marker" placeholder="Pick x or o">
+          <input type="text" class="form-control" name="marker" id="marker" placeholder="Stafur">
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-default">Sign in</button>
       </form>
       <hr>
       <div id="results">
@@ -46,6 +46,12 @@
     </tr>
         </table>
         
+        <form method="post" action="/getSquare" class="form-inline" role="form" id="squareForm">
+        <div class="form-group">
+          <input type="text" class="form-control" name="squarePicked" id="squarePicked" placeholder="Stafur">
+        </div>
+        <button type="submit" class="btn btn-default" id="secondForm">Veldu reit</button>
+      </form>
          
          <div id="gameResult"></div>
 
@@ -108,3 +114,4 @@
     </script>
   </body>
 </html>
+
