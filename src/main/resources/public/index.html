@@ -14,13 +14,13 @@
     <div class="container">
       <h1>Tictactoe</h1>
 
-      <p>Veldu x eða o</p>
+      <p>Select X or O</p>
 
       <form method="post" action="/setMarker" class="form-inline" role="form" id="firstForm">
         <div class="form-group">
           <input type="text" class="form-control" name="marker" id="marker" placeholder="Stafur">
         </div>
-        <button type="submit" class="btn btn-default">Sign in</button>
+        <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <hr>
       <div id="results">
@@ -46,12 +46,6 @@
     </tr>
 	</table>
 	
-	<form method="post" action="/getSquare" class="form-inline" role="form" id="squareForm">
-        <div class="form-group">
-          <input type="text" class="form-control" name="squarePicked" id="squarePicked" placeholder="Stafur">
-        </div>
-        <button type="submit" class="btn btn-default" id="secondForm">Veldu reit</button>
-      </form>
 	 
 	 <div id="gameResult"></div>
 
